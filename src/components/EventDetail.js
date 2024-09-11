@@ -6,10 +6,10 @@ const EventDetail=()=>{
   let {id} = useParams();
   let [event,setEvent] = useState(null)
   useEffect(()=>{
-    fetch (`./events${id}`)
+    fetch (`http://localhost:5000/events${id}`)
     .then(response => response.json)
     .then(data =>setEvent(data))
-    .catch(error => console.error('Error fetchingevent details:',error))
+    .catch(error => console.error('Error fetching event details:',error))
   }, [id]);
   if (!event){
     return <p>loading...</p>
@@ -21,7 +21,7 @@ const EventDetail=()=>{
       <p><strong>Location:</strong> {event.location}</p>
       <p><strong>Description:</strong> {event.description}</p>
       <p><strong>Details:</strong> {event.details}</p>
-      <link to="/events">Back to Events List</link>
+      <link to="events">Back to Events List</link>
     </div>
   );
 }
