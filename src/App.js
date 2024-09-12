@@ -15,8 +15,9 @@ import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   return (
+    <>
     <Router>
-      <Navbar />
+      <Navbar >
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
@@ -29,7 +30,12 @@ function App() {
         <Route path="/orders" element={<ProtectedRoute component={OrderHistory} />} />
         <Route path="/settings" element={<ProtectedRoute component={Settings} />} />
       </Routes>
+      </Navbar>
     </Router>
+    <EventDetail/>
+    <EventList/>
+
+    </>
   );
 }
 

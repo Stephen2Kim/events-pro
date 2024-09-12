@@ -1,13 +1,12 @@
-
 import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
-import db from "./db"
+import db from "../db.json"
 
 const EventList =() => {
   const [events, setEvents] =useState([]);
 
   useEffect(()=>{
-    fetch('http://localhost:/events')
+    fetch('http://localhost:5000/events')
     .then(response => response.json())
     .then(data => setEvents(data))
     .catch(error => console.error("Error Fetching events:", error));
